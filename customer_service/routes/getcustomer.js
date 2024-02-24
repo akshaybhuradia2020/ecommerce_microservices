@@ -1,10 +1,10 @@
 import {Router} from 'express';
 
-import { get_all_product, get_product_from_id} from '../middlewares/getproduct.js';
+import { get_customer_from_id, get_all_customer} from '../middlewares/getcustomer.js';
 export const get_router = Router();
 
 
-get_router.get("/get_product_id", [get_product_from_id], (req, res) =>{
+get_router.get("/get_customer_id", [get_customer_from_id], (req, res) =>{
     if((res.locals.data).length > 0){
         res.statusCode(200).json({
 
@@ -19,7 +19,7 @@ get_router.get("/get_product_id", [get_product_from_id], (req, res) =>{
 });
 
 
-get_router.get("/get_product_all", [get_product_all] ,(req, res) =>{
+get_router.get("/get_customer_all", [get_all_customer] ,(req, res) =>{
     if((res.locals.data).length > 0){
         res.statusCode(200).json({
 

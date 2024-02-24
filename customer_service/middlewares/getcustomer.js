@@ -1,8 +1,8 @@
-import {_get} from "../crud_db_operation/getproduct.js"
+import {_get} from "../crud_db_operation/getcustomer.js"
 /***
  * this function get products based on id param from system.
  */
-export async function get_product_from_id(req, res, next){
+export async function get_customer_from_id(req, res, next){
     try{
         const _data = await _get();
         if(_data === undefined){
@@ -23,7 +23,7 @@ export async function get_product_from_id(req, res, next){
 /***
  * this function get all products from system.
  */
-export async function get_all_product(req, res, next){
+export async function get_all_customer(req, res, next){
     try{
         const _data = await _get(req.param[_id]);
         if(_data === undefined){
