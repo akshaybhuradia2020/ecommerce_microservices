@@ -19,7 +19,7 @@ get_router.get("/get_product_id", [get_product_from_id], (req, res) =>{
 });
 
 
-get_router.get("/get_product_all", [get_product_all] ,(req, res) =>{
+get_router.get("/get_product_all", [get_all_product] ,(req, res) =>{
     if((res.locals.data).length > 0){
         res.statusCode(200).json({
 
