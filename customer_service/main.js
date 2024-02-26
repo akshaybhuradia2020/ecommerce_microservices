@@ -14,12 +14,12 @@ app.get('/', (req, res) => {
     res.send("customer service check");
 });
 
-app.use(`/api${CONFIGURATION.VERSION}`, add_router);
-app.use(`/api${CONFIGURATION.VERSION}`, get_router);
-app.use(`/api${CONFIGURATION.VERSION}`, update_router);
-app.use(`/api${CONFIGURATION.VERSION}`, delete_router);
+app.use(`/api`, add_router);
+app.use(`/api`, get_router);
+app.use(`/api`, update_router);
+app.use(`/api`, delete_router);
 
-app.listen(CONFIGURATION.HOST, CONFIGURATION.PORT, () =>{
+app.listen(CONFIGURATION.PORT, CONFIGURATION.HOST, () =>{
     console.log("Customer Service is Up and Running")
 })
 

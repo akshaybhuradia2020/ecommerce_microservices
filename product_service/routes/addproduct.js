@@ -2,15 +2,15 @@ import {Router} from 'express';
 import {add_product} from "../middlewares/addproduct.js";
 export const add_router = Router();
 
-add_router.get("/add_product", [add_product], (req, res) =>{
+add_router.post("/add_product", [add_product], (req, res) =>{
     if(res.locals.data === true){
-        res.statusCode(201).json({
-
+        res.status(201).json({
+            "message": "Product is Added"
         })
     }
     else{
-        res.statusCode(500).json({
-
+        res.status(500).json({
+            "message": "Product Failed"
         });
     }
 

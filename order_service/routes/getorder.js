@@ -4,15 +4,15 @@ import {get_order_history} from "../middlewares/getorder.js";
 export const get_router = Router();
 
 
-get_router.post("/get_order", [get_order_history] ,(req, res) =>{
+get_router.get("/get_customer_order/:customer_id", [get_order_history] ,(req, res) =>{
     if(res.locals.data){
-        res.statusCode(200).json({
-
+        res.status(200).json({
+            Result: res.locals.data
         });
     }
     else{
-        res.statusCode(200).json({
-
+        res.status(500).json({
+            Result: []
         });
     }
     

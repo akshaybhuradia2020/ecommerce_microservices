@@ -3,8 +3,8 @@ import {_update} from "../crud_db_operation/updateproduct.js";
 
 export async function update_product_by_id(req, res, next){
     try{
-        const _data = await _post(req.param[_id], req.body);
-        if(_data === undefined){
+        const _data = await _update(req.params["product_id"], req.body);
+        if(_data == undefined){
             res.locals.data = false;
         }
         else{

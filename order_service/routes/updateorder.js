@@ -7,12 +7,12 @@ export const update_router = Router();
 update_router.post("/change_order_status", [update_order_status], (req, res) =>{
 
     if(res.locals.data){
-        res.statusCode(200).json({
+        res.status(200).json({
 
         });
     }
     else{
-        res.statusCode(200).json({
+        res.status(200).json({
 
         });
     }

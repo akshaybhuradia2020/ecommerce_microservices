@@ -2,7 +2,7 @@ import { dbconnection } from "../utility/dbconn.js";
 import { customer } from "../models/customer.js";
 
 
-export async function _update(_data, _id){
+export async function _update(_id, _data){
     try{
         const get_conn = await dbconnection();
         const _customer = get_conn.model("customer", customer);

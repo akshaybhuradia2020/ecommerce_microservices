@@ -8,5 +8,8 @@ export const order = new Schema({
     order_destination: {type: String, required: true},
     order_shipper: {type: String, required: true},
     order_weight: {type: String , required: true},
-    order_delivered_to_customer: {type: Boolean, required: true}
+    order_delivered_to_customer: {type: Boolean, required: true},
+    customer_id: {type: String, required: true},
+    product_id: {type: String, required: true},
+    order_quantity: {type: Number, required: true}
 });

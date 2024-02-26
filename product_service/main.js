@@ -5,22 +5,46 @@ import {get_router} from './routes/getproduct.js';
 import {update_router} from './routes/updateproduct.js';
 import {delete_router} from './routes/deleteproduct.js';
 
-const app = new express();
+import {_update} from "./crud_db_operation/updateproduct.js";
 
+
+const app = new express();
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
+app.get(`/`, (req, res) => {
     res.send("product service check");
 });
 
-app.use(`/api${CONFIGURATION.VERSION}`, add_router);
-app.use(`/api${CONFIGURATION.VERSION}`, get_router);
-app.use(`/api${CONFIGURATION.VERSION}`, update_router);
-app.use(`/api${CONFIGURATION.VERSION}`, delete_router);
 
-app.listen(CONFIGURATION.HOST, CONFIGURATION.PORT, () =>{
+import { Kafka } from "kafkajs";
+
+const kafka = new Kafka({
+  clientId: CONFIGURATION.MESSAGE_BROKER_CLIENTID,
+  brokers: [`${CONFIGURATION.MESSAGE_BROKER_IP}:${CONFIGURATION.MESSAGE_BROKER_PORT}`],
+});
+
+
+const consumer = kafka.consumer({ groupId: 'test-group' })
+
+await consumer.connect();
+await consumer.subscribe({ topic: 'quickstart-events'})
+
+await consumer.run({
+  eachMessage: async ({ topic, partition, message }) => {
+    const {product_id:_id, ..._data } = JSON.parse(message.value);
+    await _update(_id, {order_quantity: -_data["order_quantity"]});
+  },
+});
+
+
+app.use(`/api`, add_router);
+app.use(`/api`, get_router);
+app.use(`/api`, update_router);
+app.use(`/api`, delete_router);
+
+app.listen(CONFIGURATION.PORT, CONFIGURATION.HOST, () =>{
     console.log("Product Service is Up and Running")
-})
+});
 
 

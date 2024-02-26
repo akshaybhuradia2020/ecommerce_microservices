@@ -3,8 +3,8 @@ import {_delete} from "../crud_db_operation/deleteproduct.js";
 
 export async function delete_product_by_id(req, res, next){
     try{
-        const _data = await _post(req.param["_id"]);
-        if(_data === undefined){
+        const _data = await _delete(req.params["product_id"]);
+        if(_data == undefined){
             res.locals.data = false;
         }
         else{

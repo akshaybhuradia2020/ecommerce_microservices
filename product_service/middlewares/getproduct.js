@@ -2,15 +2,15 @@ import {_get} from "../crud_db_operation/getproduct.js"
 /***
  * this function get products based on id param from system.
  */
-export async function get_product_from_id(req, res, next){
+export async function get_all_product(req, res, next){
     try{
         const _data = await _get();
-        if(_data === undefined){
+        if(_data == undefined){
             res.locals.data = false;
             next();
         }
         else{
-            res.locals.data = true;
+            res.locals.data = _data;
             next();
         }
     }
@@ -23,11 +23,12 @@ export async function get_product_from_id(req, res, next){
 /***
  * this function get all products from system.
  */
-export async function get_all_product(req, res, next){
+
+export async function get_product_from_id(req, res, next){
     try{
-        const _data = await _get(req.param[_id]);
-        if(_data === undefined){
-            res.locals.data = [];
+        const _data = await _get(req.params["product_id"]);
+        if(_data == undefined){
+            res.locals.data = false;
             next();
         }
         else{
@@ -36,7 +37,7 @@ export async function get_all_product(req, res, next){
         }
     }
     catch(error){
-        res.locals.data = [];
+        res.locals.data = false;
         next();
     }
 }

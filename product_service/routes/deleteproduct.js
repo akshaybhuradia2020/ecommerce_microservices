@@ -4,15 +4,15 @@ import { delete_product_by_id} from "../middlewares/deleteproduct.js";
 export const delete_router = Router();
 
 
-delete_router.get("/delete_product", [delete_product_by_id], (req, res) =>{
+delete_router.post("/delete_product/:product_id", [delete_product_by_id], (req, res) =>{
     if(res.locals.data){
-        res.statusCode(200).json({
-
+        res.status(200).json({
+            "message": "Product is deleted"
         });
     }
     else{
-        res.statusCode(200).json({
-
+        res.status(200).json({
+            "message": "Product Deletion Failed"
         });
     }
 

@@ -1,19 +1,33 @@
 import {Router} from 'express';
 
 import {add_order} from "../middlewares/addorder.js";
+// import {order_kafka} from "../utility/kafkaconn.js";
+import { CONFIGURATION } from '../utility/const.js';
+import {Kafka} from 'kafkajs';
+
 export const add_router = Router();
 
-
-add_router.get("/add_order", [add_order], (req, res) =>{
+const _order_kafka = new Kafka({
+    clientId: CONFIGURATION.MESSAGE_BROKER_CLIENTID,
+    brokers: [`${CONFIGURATION.MESSAGE_BROKER_IP}:${CONFIGURATION.MESSAGE_BROKER_PORT}`]
+});
+const _producer = _order_kafka.producer();
+add_router.post("/add_order", [add_order], async (req, res) =>{
 
     if(res.locals.data){
-        res.statusCode(200).json({
 
+        await _producer.connect();
+
+        await _producer.send({topic: 'quickstart-events', messages: [{ value: JSON.stringify(res.locals.data)}]});
+        await _producer.disconnect();
+        
+        res.status(200).json({
+            "Message": "Order is palced"
         });
     }
     else{
-        res.statusCode(200).json({
-
+        res.status(500).json({
+            "Message": "Error in placing in order"
         });
     }
     

@@ -4,15 +4,15 @@ import { update_customer_by_id} from "../middlewares/updatecustomer.js";
 export const update_router = Router();
 
 
-update_router.get("/update_customer", [update_customer_by_id], (req, res) =>{
-    if(res.local.data){
-        res.statusCode(201).json({
-
+update_router.post("/update_customer/:customer_id", [update_customer_by_id], (req, res) =>{
+    if(res.locals.data){
+        res.status(200).json({
+            "Message": "Customer data is updated"
         });
     }
     else{
-        res.statusCode(201).json({
-
+        res.status(500).json({
+            "Message": "Customer data updation is failed"
         });
     }
 

@@ -4,15 +4,15 @@ import { get_all_product, get_product_from_id} from '../middlewares/getproduct.j
 export const get_router = Router();
 
 
-get_router.get("/get_product_id", [get_product_from_id], (req, res) =>{
-    if((res.locals.data).length > 0){
-        res.statusCode(200).json({
-
+get_router.get("/get_product_id/:product_id", [get_product_from_id], (req, res) =>{
+    if(res.locals.data){
+        res.status(200).json({
+            "Result": [res.locals.data]
         });
     }
     else{
-        res.statusCode(200).json({
-
+        res.status(500).json({
+            "Result": []
         });
     }
 
@@ -21,13 +21,13 @@ get_router.get("/get_product_id", [get_product_from_id], (req, res) =>{
 
 get_router.get("/get_product_all", [get_all_product] ,(req, res) =>{
     if((res.locals.data).length > 0){
-        res.statusCode(200).json({
-
+        res.status(200).json({
+            "Result": res.locals.data
         });
     }
     else{
-        res.statusCode(200).json({
-
+        res.status(500).json({
+            "Result": []
         });
     }
 });

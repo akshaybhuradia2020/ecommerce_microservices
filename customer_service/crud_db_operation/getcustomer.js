@@ -12,7 +12,7 @@ export async function _get(_id){
             return await _customer.find({});
         }
         else if(_id){
-            return await _customer.findById(_id)
+            return await _customer.findById(_id).exec();
         }
         else{
             return ;
