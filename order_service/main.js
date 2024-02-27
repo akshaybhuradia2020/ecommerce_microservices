@@ -14,13 +14,13 @@ const app = new express();
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
+app.get('/order', (req, res) => {
     res.send("order service check");
 });
 
-app.use(`/api`, add_router);
-app.use(`/api`, get_router);
-app.use(`/api`, update_router);
+app.use(`/order/api`, add_router);
+app.use(`/order/api`, get_router);
+app.use(`/order/api`, update_router);
 
 app.listen(CONFIGURATION.PORT, CONFIGURATION.HOST, () =>{
     console.log("Order Service is Up and Running")

@@ -11,15 +11,15 @@ const app = new express();
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
+app.get('/customer', (req, res) => {
     res.send("customer service check");
 });
 
-app.use(`/api`, login_router);
-app.use(`/api`, add_router);
-app.use(`/api`, get_router);
-app.use(`/api`, update_router);
-app.use(`/api`, delete_router);
+app.use(`/customer/api`, login_router);
+app.use(`/customer/api`, add_router);
+app.use(`/customer/api`, get_router);
+app.use(`/customer/api`, update_router);
+app.use(`/customer/api`, delete_router);
 
 app.listen(CONFIGURATION.PORT, CONFIGURATION.HOST, () =>{
     console.log("Customer Service is Up and Running")

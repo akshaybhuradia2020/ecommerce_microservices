@@ -12,7 +12,7 @@ const app = new express();
 
 app.use(express.json());
 
-app.get(`/`, (req, res) => {
+app.get(`/product`, (req, res) => {
     res.send("product service check");
 });
 
@@ -38,10 +38,10 @@ await consumer.run({
 });
 
 
-app.use(`/api`, add_router);
-app.use(`/api`, get_router);
-app.use(`/api`, update_router);
-app.use(`/api`, delete_router);
+app.use(`/product/api`, add_router);
+app.use(`/product/api`, get_router);
+app.use(`/product/api`, update_router);
+app.use(`/product/api`, delete_router);
 
 app.listen(CONFIGURATION.PORT, CONFIGURATION.HOST, () =>{
     console.log("Product Service is Up and Running")
