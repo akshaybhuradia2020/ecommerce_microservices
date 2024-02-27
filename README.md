@@ -13,6 +13,14 @@
 ![Alt text](./data/Ecommerce_Collection_Scheme.png)
 
 
+### Approach to designing each service ###
+* customer service is for authenticate and authorization(of resources).This is parent service of all services.
+* product service manage stocks.
+* order service consumes stocks from product service.
+
+### Scalability and Performance Considerations ###
+* One of the obvious choice is horizontal scaling.
+
 ### Ecommerce RestApi Design ###
 
 Base URLs: http://localhost:8080
