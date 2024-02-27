@@ -5,36 +5,13 @@
 ![Alt text](./data/Ecommerce_Collection_Scheme.png)
 
 
+### Ecommerce rRstApi Endpoint
 
-### ENDPOINT ###
----
-title: ecommerce
-language_tabs:
-  - shell: Shell
-  - http: HTTP
-  - javascript: JavaScript
-  - ruby: Ruby
-  - python: Python
-  - php: PHP
-  - java: Java
-  - go: Go
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: "@tarslib/widdershins v4.0.20"
-
----
-
-# ecommerce
-
-Base URLs:
+Base URLs: http://localhost:8080
 
 # Authentication
 
-# Default
+JWT 
 
 ## POST change_order_status
 
@@ -65,7 +42,9 @@ POST /order/api/change_order_status/65ddb8df1379b8d72e56ba04
 > 200 Response
 
 ```json
-{}
+{
+	"Message": "Order delivered to customer."
+}
 ```
 
 ### Responses
@@ -120,7 +99,9 @@ GET /customer/api/get_customer_order/65dc90a960127670a3d6d834
 > 200 Response
 
 ```json
-{}
+{
+    "Result": []
+}
 ```
 
 ### Responses
@@ -180,7 +161,9 @@ POST /order/api/add_order
 > 200 Response
 
 ```json
-{}
+{
+	"Message": "Order is palced"
+}
 ```
 
 ### Responses
@@ -218,7 +201,9 @@ POST /customer/api/update_customer/65dc8ee986f613732c94d8dd
 > 200 Response
 
 ```json
-{}
+{
+	"Message": "Customer data is updated"
+}
 ```
 
 ### Responses
@@ -245,7 +230,20 @@ GET /customer/api/get_customer_id/65dc8ee986f613732c94d8dd
 > 200 Response
 
 ```json
-{}
+{
+	"Result": [
+		{
+			"_id": "65dc8ee986f613732c94d8dd",
+			"customer_name": "akshay bhuradia",
+			"customer_address": "delhi",
+			"customer_phone": "97164147797",
+			"customer_wallet": 0,
+			"customer_email": "akshay@xyz.com",
+			"customer_passwd": "12345678",
+			"__v": 0
+		}
+	]
+}
 ```
 
 ### Responses
@@ -272,7 +270,19 @@ GET /customer/api/get_customer_all
 > 200 Response
 
 ```json
-{}
+{
+	"Result": [
+		{
+			"_id": "65dc8ee986f613732c94d8dd",
+			"customer_name": "akshay bhuradia",
+			"customer_address": "gurgoan",
+			"customer_phone": "97164147797",
+			"customer_wallet": 0,
+			"customer_email": "akshay@xyz.com",
+			"customer_passwd": "12345678",
+			"__v": 0
+		}]
+}
 ```
 
 ### Responses
@@ -299,7 +309,9 @@ POST /customer/api/delete_customer/65dc8da62000ba08d358536b
 > 200 Response
 
 ```json
-{}
+{
+	"Message": "Customer is deleted"
+}
 ```
 
 ### Responses
@@ -347,7 +359,9 @@ POST /customer/api/add_customer
 > 200 Response
 
 ```json
-{}
+{
+	"Message": "Customer is Added"
+}
 ```
 
 ### Responses
@@ -374,7 +388,9 @@ POST /product/api/delete_product/65dc50dca309e72c781e40dd
 > 200 Response
 
 ```json
-{}
+{
+	"message": "Product is deleted"
+}
 ```
 
 ### Responses
@@ -393,7 +409,7 @@ POST /product/api/update_product/65dd90abfe4c961034bb90c2
 
 ```json
 {
-  "product_stocks": 0
+  "product_stocks": 10
 }
 ```
 
@@ -412,7 +428,9 @@ POST /product/api/update_product/65dd90abfe4c961034bb90c2
 > 200 Response
 
 ```json
-{}
+{
+	"Message": "Product Updated"
+}
 ```
 
 ### Responses
@@ -439,7 +457,17 @@ GET /product/api/get_product_all
 > 200 Response
 
 ```json
-{}
+{
+	"Result": [
+		{
+			"_id": "65dc4ccf87f9a3fd2c8065d1",
+			"product_name": "p1",
+			"product_despription": "dp1",
+			"product_price": 10,
+			"product_stocks": 10017,
+			"__v": 0
+		}]
+}
 ```
 
 ### Responses
@@ -467,7 +495,18 @@ GET /product/api/get_product_id/65dc4d43592035edbeccb67a
 > 200 Response
 
 ```json
-{}
+{
+	"Result": [
+		{
+			"_id": "65dc4d43592035edbeccb67a",
+			"product_name": "p1",
+			"product_despription": "dp1",
+			"product_price": 10,
+			"product_stocks": 100,
+			"__v": 0
+		}
+	]
+}
 ```
 
 ### Responses
@@ -488,8 +527,8 @@ POST /product/api/add_product
 {
   "product_name": "string",
   "product_despription": "string",
-  "product_price": 0,
-  "product_stocks": 0
+  "product_price": 800,
+  "product_stocks": 10
 }
 ```
 
@@ -511,7 +550,9 @@ POST /product/api/add_product
 > 200 Response
 
 ```json
-{}
+{
+	"message": "Product is Added"
+}
 ```
 
 ### Responses
