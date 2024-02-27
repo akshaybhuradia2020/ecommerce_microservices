@@ -5,7 +5,7 @@
 ![Alt text](./data/Ecommerce_Collection_Scheme.png)
 
 
-### Ecommerce rRstApi Endpoint
+### Ecommerce RestApi Endpoint ###
 
 Base URLs: http://localhost:8080
 
@@ -53,7 +53,7 @@ POST /order/api/change_order_status/65ddb8df1379b8d72e56ba04
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### Responses Data Schema
+<!-- ### Responses Data Schema -->
 
 ## POST customer_login
 
@@ -72,7 +72,12 @@ POST /customer/api/login
 > 200 Response
 
 ```json
-{}
+{
+	"message": "CORRECT CREDENTIALS",
+	"uservalid": true,
+	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InZpa2FzQHh5ei5jb20iLCJpYXQiOjE3MDkwMzk2MDQsImV4cCI6MTcwOTA0MzIwNH0.ZI1FBXRTwBvDa9wX_-eixscVsiUDyvpImRaOBGpfwGQ",
+	"userid": "65dc90a960127670a3d6d834"
+}
 ```
 
 ### Responses
@@ -81,7 +86,7 @@ POST /customer/api/login
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### Responses Data Schema
+<!-- ### Responses Data Schema -->
 
 ## GET get_customer_order
 
@@ -110,7 +115,7 @@ GET /customer/api/get_customer_order/65dc90a960127670a3d6d834
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### Responses Data Schema
+<!-- ### Responses Data Schema -->
 
 ## POST add_order
 
@@ -172,7 +177,7 @@ POST /order/api/add_order
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### Responses Data Schema
+<!-- ### Responses Data Schema -->
 
 ## POST update_customer_details
 
@@ -212,7 +217,7 @@ POST /customer/api/update_customer/65dc8ee986f613732c94d8dd
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### Responses Data Schema
+<!-- ### Responses Data Schema -->
 
 ## GET get_one_user
 
@@ -252,7 +257,7 @@ GET /customer/api/get_customer_id/65dc8ee986f613732c94d8dd
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### Responses Data Schema
+<!-- ### Responses Data Schema -->
 
 ## GET get_all_user
 
@@ -291,7 +296,7 @@ GET /customer/api/get_customer_all
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### Responses Data Schema
+<!-- ### Responses Data Schema -->
 
 ## POST delete_customer
 
@@ -320,7 +325,7 @@ POST /customer/api/delete_customer/65dc8da62000ba08d358536b
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### Responses Data Schema
+<!-- ### Responses Data Schema -->
 
 ## POST add_customer
 
@@ -370,7 +375,7 @@ POST /customer/api/add_customer
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### Responses Data Schema
+<!-- ### Responses Data Schema -->
 
 ## POST delete_product
 
@@ -399,7 +404,7 @@ POST /product/api/delete_product/65dc50dca309e72c781e40dd
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### Responses Data Schema
+<!-- ### Responses Data Schema -->
 
 ## POST update_product
 
@@ -439,7 +444,7 @@ POST /product/api/update_product/65dd90abfe4c961034bb90c2
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### Responses Data Schema
+<!-- ### Responses Data Schema -->
 
 ## GET get_all_product
 
@@ -476,7 +481,7 @@ GET /product/api/get_product_all
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### Responses Data Schema
+<!-- ### Responses Data Schema -->
 
 ## GET get_product_by_id
 
@@ -514,8 +519,8 @@ GET /product/api/get_product_id/65dc4d43592035edbeccb67a
 |HTTP Status Code |Meaning|Description|Data schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
-
-### Responses Data Schema
+<!-- 
+### Responses Data Schema -->
 
 ## POST add_product
 
@@ -561,7 +566,7 @@ POST /product/api/add_product
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Success|Inline|
 
-### Responses Data Schema
+<!-- ### Responses Data Schema
 
-# Data Schema
+# Data Schema -->
 
