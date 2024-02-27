@@ -1,7 +1,7 @@
 import {Router} from 'express';
 
 import {add_order} from "../middlewares/addorder.js";
-// import {order_kafka} from "../utility/kafkaconn.js";
+import { verifyToken } from '../middlewares/auth.js';
 import { CONFIGURATION } from '../utility/const.js';
 import {Kafka} from 'kafkajs';
 
@@ -12,7 +12,7 @@ const _order_kafka = new Kafka({
     brokers: [`${CONFIGURATION.MESSAGE_BROKER_IP}:${CONFIGURATION.MESSAGE_BROKER_PORT}`]
 });
 const _producer = _order_kafka.producer();
-add_router.post("/add_order", [add_order], async (req, res) =>{
+add_router.post("/add_order", [verifyToken, add_order], async (req, res) =>{
 
     if(res.locals.data){
 
