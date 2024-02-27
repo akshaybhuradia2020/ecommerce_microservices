@@ -1,11 +1,19 @@
 ### Component Diagram ###
 ![Alt text](./data/TrafficFlow.drawio.png)
 
+## Component Details: ##
+* API Gateway : Nginx(:8080)
+* MIcrosservices : Nodejs(prodt:3000,ord:3001, cust:3002)
+* Database: MongoDB(:27017)
+* Message Broker: Kafka(:9092)
+* Assumption: Only one instance(process) act as 3 databases for 3 services
+
+
 ### Schema Diagram ###
 ![Alt text](./data/Ecommerce_Collection_Scheme.png)
 
 
-### Ecommerce RestApi Endpoint ###
+### Ecommerce RestApi Design ###
 
 Base URLs: http://localhost:8080
 
