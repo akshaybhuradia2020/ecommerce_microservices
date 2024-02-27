@@ -14,7 +14,7 @@ export async function _update(_id, _data){
         }
         if("product_stocks" in _data){
             get_stock_count = await _product.findById(_id);
-            if(get_stock_count["product_stocks"] === 0){
+            if(get_stock_count["product_stocks"] === 0 || get_stock_count["product_stocks"] < _data["product_stocks"]){
                 return ;
             }
             _data["product_stocks"] = get_stock_count["product_stocks"] + (_data["product_stocks"] );

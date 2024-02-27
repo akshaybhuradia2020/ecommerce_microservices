@@ -11,5 +11,7 @@ export const order = new Schema({
     order_delivered_to_customer: {type: Boolean, required: true},
     customer_id: {type: String, required: true},
     product_id: {type: String, required: true},
-    order_quantity: {type: Number, required: true}
+    order_quantity: {type: Number, required: true},
+    order_date: {type: Date, required: true},
+    order_delivered_date: {type: Date}
 });

@@ -6,7 +6,7 @@ export async function _post(_data){
         const get_conn = await dbconnection();
         const _customer = get_conn.model("customer", customer);
         const get_customer_exist = await _customer.exists({customer_email: _data["customer_email"]});
-        console.log(get_customer_exist);
+        
         if (_data === undefined || _data === null || get_customer_exist != null){
             return ;
 

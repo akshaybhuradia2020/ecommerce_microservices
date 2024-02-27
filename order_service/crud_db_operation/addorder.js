@@ -21,7 +21,10 @@ export async function _post(_data){
             order_delivered_to_customer: _data["order_delivered_to_customer"],
             customer_id: _data["customer_id"],
             product_id: _data["product_id"],
-            order_quantity: _data["order_quantity"]
+            order_quantity: _data["order_quantity"],
+            order_date: _data["order_date"],
+            order_delivered_date: _data["order_delivered_date"]
+
 
         }).save();
     }

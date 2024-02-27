@@ -2,7 +2,7 @@ import {dbconnection} from "../utility/dbconn.js";
 import {order} from "../models/order.js";
 
 
-export async function _update(_id, _order_status){
+export async function _update(_id, _data){
     try{
         const get_dbconn = await dbconnection();
         const _order = get_dbconn.model("order", order);
@@ -11,7 +11,7 @@ export async function _update(_id, _order_status){
             return ;
         }
         else if(_id){
-            return await _order.findByIdAndUpdate(_id, {order_status: _order_status});
+            return await _order.findByIdAndUpdate(_id, _data);
         }
         else{
             return ;
