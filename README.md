@@ -1,3 +1,3 @@
-![Screenshot](./data/TrafficFlow.drawio.png)
+![Alt text](./data/TrafficFlow.drawio.png "Component Diagram")
 
-![Screenshot](./data/Ecommerce_Collection_Scheme.png)
+![Alt text](./data/Ecommerce_Collection_Scheme.png "Schema Diagram")
