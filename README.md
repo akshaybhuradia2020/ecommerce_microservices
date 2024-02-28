@@ -1,4 +1,4 @@
-### Component Diagram ###
+## Component Diagram ##
 ![Alt text](./data/TrafficFlow.drawio.png)
 
 ## Component Details: ##
@@ -9,7 +9,7 @@
 * Assumption: Only one instance(process) act as 3 databases for 3 services and all deployment on my localhost.
 
 
-### Schema Diagram ###
+## Schema Diagram ##
 ![Alt text](./data/Ecommerce_Collection_Scheme.png)
 * customer schema include one primary key _id and there are 2 indexes one is _id and customer email.Reason for  2 indexes login we need to check customer email and for other operation done by _id.
 * product schema include one primary key _id and 1 index.RUD operation done based on _id.
@@ -17,16 +17,15 @@
 
 
 
-### Approach to designing each service ###
+## Approach to designing each service ##
 * customer service is for authenticate and authorization(of resources).This service act as entry point for other other services.
 * product service manage stocks.
 * order service consumes stocks from product service.In this when we get order  from customer , consumer producer push the data to hub from there product consumer consume that data and update stocks values(make update in product stocks).
 
-### Scalability and Performance Considerations ###
+## Scalability and Performance Considerations ##
 * One of the obvious choice is horizontal scaling.
 
 
-### Installation of Project ###
 ## Project install steps: ##
 * install nodejs runtime , mongodb, kafka binary setup and any http client(for testing purpose) in your localhost
 * sudo systemctl start mongodb.service
@@ -43,10 +42,10 @@
 
 
 
-### Ecommerce RestApi Design ###
+## Ecommerce RestApi Design ##
 Base URLs: http://localhost:8080
 
-# Authentication
+## Authentication
 JWT 
 
 ## POST change_order_status
