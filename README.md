@@ -6,27 +6,29 @@
 * MIcrosservices : Nodejs(prodt:3000,ord:3001, cust:3002)
 * Database: MongoDB(:27017)
 * Message Broker: Kafka(:9092)
-* Assumption: Only one instance(process) act as 3 databases for 3 services
+* Assumption: Only one instance(process) act as 3 databases for 3 services and all deployment on my localhost.
 
 
 ### Schema Diagram ###
 ![Alt text](./data/Ecommerce_Collection_Scheme.png)
+* customer schema include one primary key _id and there are 2 indexes one is _id and customer email.Reason for  2 indexes login we need to check customer email and for other operation done by _id.
+* product schema include one primary key _id and 1 index.RUD operation done based on _id.
+* order schema include one primary key _id and 1 index.RUD operation done based on _id.Relation between product and customer is completed by adding product_id and customer_id.Basically which customer order the product.
+
 
 
 ### Approach to designing each service ###
-* customer service is for authenticate and authorization(of resources).This is parent service of all services.
+* customer service is for authenticate and authorization(of resources).This service act as entry point for other other services.
 * product service manage stocks.
-* order service consumes stocks from product service.
+* order service consumes stocks from product service.In this when we get order  from customer , consumer producer push the data to hub from there product consumer consume that data and update stocks values(make update in product stocks).
 
 ### Scalability and Performance Considerations ###
 * One of the obvious choice is horizontal scaling.
 
 ### Ecommerce RestApi Design ###
-
 Base URLs: http://localhost:8080
 
 # Authentication
-
 JWT 
 
 ## POST change_order_status
