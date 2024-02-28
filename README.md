@@ -20,7 +20,7 @@
 ## Approach to designing each service ##
 * customer service is for authenticate and authorization(of resources).This service act as entry point for other other services.
 * product service manage stocks.
-* order service consumes stocks from product service.In this when we get order  from customer , consumer producer push the data to hub from there product consumer consume that data and update stocks values(make update in product stocks).
+* order service consumes stocks from product service.In this when we get order  from customer , order service producer push the data to hub from there product service consumer consume that data and update stocks values(make update in product stocks).
 
 ## Scalability and Performance Considerations ##
 * For scaling each service there are 2 parts 
