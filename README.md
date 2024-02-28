@@ -25,6 +25,24 @@
 ### Scalability and Performance Considerations ###
 * One of the obvious choice is horizontal scaling.
 
+
+### Installation of Project ###
+## Project install steps: ##
+* install nodejs runtime , mongodb, kafka binary setup and any http client(for testing purpose) in your localhost
+* ~sudo systemctl start mongodb.service~
+* git clone https://github.com/akshaybhuradia2020/ecommerce_microservices.git
+* cd ~proj dir~
+* go to each service folder cd ~product_servies~ and run npm i
+* npm install pm2@latest -g
+* pm2 start ~go to each service base folder and select main.js~
+* For kafka ~tar -xvf kafka_2.12-3.6.1.tgz~ and ~cd kafka_2.12-3.6.1~
+* ~./bin/zookeeper-server-start.sh config/zookeeper.properties~
+* ~./bin/kafka-server-start.sh config/server.properties~
+* ~./bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092~
+* configure nginx based on given file in data folder of this repo. ~sudo systemctl restart nginx~
+
+
+
 ### Ecommerce RestApi Design ###
 Base URLs: http://localhost:8080
 

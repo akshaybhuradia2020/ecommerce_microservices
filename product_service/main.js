@@ -28,7 +28,7 @@ const kafka = new Kafka({
 const consumer = kafka.consumer({ groupId: 'test-group' })
 
 await consumer.connect();
-await consumer.subscribe({ topic: 'quickstart-events'})
+await consumer.subscribe({ topic: 'ecommerce'})
 
 await consumer.run({
   eachMessage: async ({ topic, partition, message }) => {

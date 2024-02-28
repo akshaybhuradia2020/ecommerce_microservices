@@ -18,7 +18,7 @@ add_router.post("/add_order", [verifyToken, add_order], async (req, res) =>{
 
         await _producer.connect();
 
-        await _producer.send({topic: 'quickstart-events', messages: [{ value: JSON.stringify(res.locals.data)}]});
+        await _producer.send({topic: 'ecommerce', messages: [{ value: JSON.stringify(res.locals.data)}]});
         await _producer.disconnect();
         
         res.status(200).json({
