@@ -25,7 +25,7 @@ const kafka = new Kafka({
 });
 
 
-const consumer = kafka.consumer({ groupId: 'order-group' });
+const consumer = kafka.consumer({ groupId: CONFIGURATION.CONSUMER_GROUP_ID });
 
 await consumer.connect();
 await consumer.subscribe({ topic: 'ecommerce'});
