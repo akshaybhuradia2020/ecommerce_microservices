@@ -23,8 +23,8 @@ export async function _post(_data){
             product_id: _data["product_id"],
             order_quantity: _data["order_quantity"],
             order_date: _data["order_date"],
-            order_delivered_date: _data["order_delivered_date"]
-
+            order_delivered_date: _data["order_delivered_date"],
+            other_contact: _data["other_contact"]
 
         }).save();
     }

@@ -174,7 +174,8 @@ POST /order/api/add_order
   "product_id": "string",
   "order_quantity": 0,
   "order_date": "string",
-  "order_delivered_date": null
+  "order_delivered_date": null,
+  "other_contact": "7894561230"
 }
 ```
 
@@ -198,6 +199,7 @@ POST /order/api/add_order
 |» order_quantity|body|integer| yes |none|
 |» order_date|body|string| yes |none|
 |» order_delivered_date|body|null| yes |none|
+|» other_contact|body|null| yes |none|
 
 > Response Examples
 

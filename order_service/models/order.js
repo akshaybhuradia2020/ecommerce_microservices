@@ -13,5 +13,6 @@ export const order = new Schema({
     product_id: {type: String, required: true},
     order_quantity: {type: Number, required: true},
     order_date: {type: Date, required: true},
-    order_delivered_date: {type: Date}
+    order_delivered_date: {type: Date},
+    other_contact: { type: String, default:null}
 });
