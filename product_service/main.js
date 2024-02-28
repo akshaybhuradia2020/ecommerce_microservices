@@ -25,10 +25,10 @@ const kafka = new Kafka({
 });
 
 
-const consumer = kafka.consumer({ groupId: 'test-group' })
+const consumer = kafka.consumer({ groupId: 'order-group' });
 
 await consumer.connect();
-await consumer.subscribe({ topic: 'ecommerce'})
+await consumer.subscribe({ topic: 'ecommerce'});
 
 await consumer.run({
   eachMessage: async ({ topic, partition, message }) => {

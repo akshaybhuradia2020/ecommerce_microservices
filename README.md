@@ -1,9 +1,9 @@
 ## Component Diagram ##
-![Alt text](./data/TrafficFlow.drawio.png)
+![Alt text](./data/Comp_Diagram.drawio.png)
 
 ## Component Details: ##
 * API Gateway : Nginx(:8080)
-* MIcrosservices : Nodejs(prodt:3000,ord:3001, cust:3002)
+* Microservices : Nodejs(prodt:3000,ord:3001,cust:3002)
 * Database: MongoDB(:27017)
 * Message Broker: Kafka(:9092)
 * Assumption: Only one instance(process) act as 3 databases for 3 services and all deployment on my localhost.
@@ -11,7 +11,7 @@
 
 ## Schema Diagram ##
 ![Alt text](./data/Ecommerce_Collection_Scheme.png)
-* customer schema include one primary key _id and there are 2 indexes one is _id and customer email.Reason for  2 indexes login we need to check customer email and for other operation done by _id.
+* customer schema include one primary key _id and there are 2 indexes one is _id and other is customer email.Reason for  2 indexes, for login we need to check customer email and for other operation done by _id.
 * product schema include one primary key _id and 1 index.RUD operation done based on _id.
 * order schema include one primary key _id and 1 index.RUD operation done based on _id.Relation between product and customer is completed by adding product_id and customer_id.Basically which customer order the product.
 
@@ -23,7 +23,10 @@
 * order service consumes stocks from product service.In this when we get order  from customer , consumer producer push the data to hub from there product consumer consume that data and update stocks values(make update in product stocks).
 
 ## Scalability and Performance Considerations ##
-* One of the obvious choice is horizontal scaling.
+* For scaling each service there are 2 parts 
+* 1) Scale based on compute of hosting Machine/Service consume all core via node module cluster which fork multiple instance along with master instance which routes the request.
+* 2) Horizontal Scaling of each services.
+
 
 
 ## Project install steps: ##
